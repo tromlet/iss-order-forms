@@ -1,0 +1,7 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AT:AT)=1, "Form Edit URL HTML",
+
+    "<a href=" & AW:AW & ">Click or tap here</a> to approve or deny this request."
+  )
+)

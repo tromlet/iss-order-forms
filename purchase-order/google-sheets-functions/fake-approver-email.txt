@@ -1,0 +1,13 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AT:AT)=1, "Fake Approver Email", 
+    
+    IFS(
+      REGEXMATCH(AS:AS, "Accounting"), "charles@inselfstorage.com",
+      REGEXMATCH(AS:AS, "Charles"), "charles@inselfstorage.com",
+      REGEXMATCH(AS:AS, "Ryan"), "charles@inselfstorage.com",
+      REGEXMATCH(AS:AS, "Justin"), "charles@inselfstorage.com",
+      ISBLANK(AS:AS), "charles@inselfstorage.com"
+    )
+  )
+)

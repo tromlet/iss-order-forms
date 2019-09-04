@@ -1,0 +1,23 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(BA:BA)=1, "Property",
+    
+    IF(
+      REGEXMATCH(Z:Z, "PROPERTY"),
+
+      IF(
+        REGEXMATCH(AA:AA, "LISTED"),
+
+        AB:AB & " (Unlisted Property)",
+
+        AA:AA
+      ),
+
+      IFS(
+        REGEXMATCH(Z:Z, "OFFICE"), "CO_DEN",
+
+        REGEXMATCH(Z:Z, "GP company"), "GP CO"
+      )
+    ) 
+  )
+)

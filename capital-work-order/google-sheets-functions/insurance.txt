@@ -1,0 +1,15 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AP:AP)=1, "Insurance", 
+    
+    IF(
+      ISBLANK(F:F), "N/A",
+
+      "Over $2500 and caused by damage? " & F:F &
+
+      IF(
+        ISBLANK(G:G), "", " - " & G:G
+      )
+    )
+  )
+)

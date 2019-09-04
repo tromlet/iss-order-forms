@@ -1,0 +1,15 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(A:A)=1,"Work Order Number",
+    
+    IF(
+      REGEXMATCH(V:V, "OFFICE"), "CO_DEN",
+
+      IF(
+        REGEXMATCH(W:W, "LISTED"), "UNLIST", W:W
+      )
+    )
+    
+    & "_" & "CAPWO" & "_" & TEXT(DATEVALUE(C:C), "yymmdd")
+  )
+)

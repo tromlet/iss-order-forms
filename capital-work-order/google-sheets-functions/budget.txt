@@ -1,0 +1,31 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AQ:AQ)=1, "Budget",
+    
+    IF(
+      ISBLANK(G:G),
+
+      IF(
+        ISBLANK(M:M),
+
+        IF(
+          ISBLANK(N:N), N:N,
+          "HMT: " & N:N
+        ),
+
+        "HOO/RMS: " & M:M
+      ),
+
+      IF (
+        (G:G="WITHIN my discretionary monthly allotment"),
+        "COM/SM/SS: " & G:G,
+        
+        IF (
+          (G:G="OVER my discretionary monthly allotment"),
+          "COM/SM/SS: " & G:G & "HOO/RMS: " & M:M,
+          ""
+        ) 
+      )
+    )
+  )
+)

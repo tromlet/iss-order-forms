@@ -1,0 +1,10 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AT:AT)=1, "Approver Name", 
+    IFS(
+      REGEXMATCH(H:H, "HOO or RMS"), "Justin Frank",
+      REGEXMATCH(H:H, "MP or PO"), "Charles Oliver",
+      REGEXMATCH(H:H, "already approved"), "Charles Oliver"
+    )
+  )
+)

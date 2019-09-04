@@ -1,0 +1,15 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(A:A)=1,"Purchase Order Number",
+    
+    IF(
+      ISBLANK(F:F), "CO_DEN",
+
+      IF(
+        REGEXMATCH(F:F, "LISTED"), "UNLIST", F:F
+      )
+    )
+    
+    & "_" & "PO" & "_" & TEXT(DATEVALUE(C:C), "yymmdd") 
+  )
+)

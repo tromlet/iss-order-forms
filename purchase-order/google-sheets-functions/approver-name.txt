@@ -1,0 +1,14 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AS:AS)=1, "Approver Name", 
+    
+    IFS(
+      REGEXMATCH(J:J, "WITHIN"), "ISS Accounting",
+      (REGEXMATCH(J:J, "OVER")+REGEXMATCH(Q:Q, "HOO or RMS")), "Justin Frank",
+      REGEXMATCH(P:P, "WITHIN"), "ISS Accounting",
+      REGEXMATCH(P:P, "OVER"), "Charles Oliver",
+      (REGEXMATCH(P:P, "WILL EXCEED")+REGEXMATCH(Q:Q, "MP or PO")+REGEXMATCH(Q:Q, "alread approved project")), "Ryan Oliver",
+      (ISBLANK(P:P)+ISBLANK(Q:Q)), "Charles Oliver"
+    )
+  )
+)

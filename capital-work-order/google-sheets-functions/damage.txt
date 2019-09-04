@@ -1,0 +1,9 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AT:AT)=1, "Damage", 
+    
+    IF(
+      (ISBLANK(F:F)+ISBLANK(H:H)), "N/A", H:H
+    )
+  )
+)

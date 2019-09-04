@@ -1,0 +1,11 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AS:AS)=1, "Change Invoice/Estimate",
+    
+    IF(
+      (REGEXMATCH(AD:AD, "No")+ISBLANK(AD:AD)), "N/A",
+
+      AD:AD & " - <a href=" & AE:AE & ">Attached Change Invoice</a>"
+    )
+  )
+)

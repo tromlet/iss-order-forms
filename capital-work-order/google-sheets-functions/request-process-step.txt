@@ -1,0 +1,20 @@
+=ARRAYFORMULA(
+  IF(ROW(B:B)=1, "Request Process Step", 
+    IFS(
+      ((E:E="REQUEST work/service?")*(ISBLANK(AF:AF))),
+        1,
+      ((J:J="Within the R&M budget")+
+      (AF:AF="APPROVE")),
+        2,
+      ((E:E="MARK a job as complete")*
+      (AJ:AJ="Yes")),
+        3,
+      ((E:E="REQUEST a change order to already approved WO?")*
+      (ISBLANK(AH:AH))),
+        4,
+      ((E:E="APPROVE or DENY work/service or change order?")+
+      (NOT(ISBLANK(AH:AH)))),
+        5
+    )
+  )
+)

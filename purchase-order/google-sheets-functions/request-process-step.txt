@@ -1,0 +1,19 @@
+=ARRAYFORMULA(
+  IF(ROW(B:B)=1, "Request Process Step", 
+    IFS(
+      ((D:D="REQUEST a product purchase?")*(ISBLANK(AG:AG))),
+        1,
+      ((J:J="WITHIN my discretionary monthly allotment")+
+      (AG:AG="APPROVE")+
+      (AG:AG="DENY")+
+      (P:P="WITHIN monthly YTD budget & UNDER $500")+
+      (P:P="WITHIN monthly YTD budget & OVER $500")+
+      (Q:Q="WITHIN monthly YTD marketing budget & UNDER $500")+
+      (Q:Q="WITHIN monthly YTD marketing budget & OVER $500")),
+        2,
+      ((D:D="MARK a PO as purchased?")*
+      (AI:AI="Yes")),
+        3
+    )
+  )
+)

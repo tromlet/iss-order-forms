@@ -1,0 +1,33 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AP:AP)=1, "Links",
+
+    IF(
+      (ISBLANK(Z:Z)*ISBLANK(AA:AA)*ISBLANK(AB:AB)), "N/A",
+
+      IF(
+        ISBLANK(Z:Z), "", "<a href=" & Z:Z & ">Item Link</a>"
+      ) &
+
+      IF(
+        (NOT(ISBLANK(Z:Z))*NOT(ISBLANK(AB:AB))), " - ", "" 
+      ) &
+
+      IF(
+        ISBLANK(AB:AB), "", "<a href=" & AB:AB & ">Item List</a>"
+      ) &
+
+      IF(
+        (NOT(ISBLANK(AB:AB))*NOT(ISBLANK(AA:AA))), " - ", "" 
+      ) &
+
+      IF(
+        (NOT(ISBLANK(Z:Z))*NOT(ISBLANK(AA:AA))*ISBLANK(AB:AB)), " - ", "" 
+      ) &
+
+      IF(
+        ISBLANK(AA:AA), "", "<a href=" & AA:AA & ">Damage Photo/Video</a>"
+      ) 
+    )
+  )
+)

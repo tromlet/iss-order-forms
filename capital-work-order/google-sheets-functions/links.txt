@@ -1,0 +1,21 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AP:AP)=1, "Links",
+
+    IF(
+      (ISBLANK(R:R)*ISBLANK(S:S)), "N/A",
+
+      IF(
+        ISBLANK(R:R), "", "<a href=" & R:R & ">Work Link</a>"
+      ) &
+
+      IF(
+        (NOT(ISBLANK(R:R))*NOT(ISBLANK(S:S))), " - ", "" 
+      ) &
+
+      IF(
+        ISBLANK(S:S), "", "<a href=" & S:S & ">Work List</a>"
+      )
+    )
+  )
+)

@@ -1,0 +1,34 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AR:AR)=1, "Budget",
+    
+    IF(
+      ISBLANK(G:G),
+
+      IF(
+        ISBLANK(M:M),
+
+        IF(
+          ISBLANK(N:N), "N/A",
+          "HMT: " & N:N
+        ),
+
+        "HOO/RMS: " & M:M
+      ),
+
+      IF (
+        REGEXMATCH(G:G, "WITHIN"),
+        "COM/SM/SS: " & G:G,
+        
+        IF (
+          REGEXMATCH(G:G, "OVER"),
+          "COM/SM/SS: " & G:G & IF(
+            ISBLANK(M:M), "", "HOO/RMS: " & M:M
+          ), 
+
+          "N/A"
+        )
+      )
+    )
+  )
+)

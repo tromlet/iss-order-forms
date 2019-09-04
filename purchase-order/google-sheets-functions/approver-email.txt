@@ -1,0 +1,13 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AT:AT)=1, "Approver Email", 
+    
+    IFS(
+      AS:AS="Charles Oliver", "charles@inselfstorage.com",
+      AS:AS="Ryan Oliver", "ryan@inselfstorage.com",
+      AS:AS="Justin Frank", "justin@inselfstorage.com",
+      AS:AS="ISS Accounting", "accounting@inselfstorage.com",
+      ISBLANK(AS:AS), "charles@inselfstorage.com"
+    )
+  )
+)

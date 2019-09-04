@@ -1,0 +1,20 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AQ:AQ)=1, "Multiple Vendors",
+    
+    IF(
+      (REGEXMATCH(J:J, "HOO or RMS")+
+      REGEXMATCH(J:J, "MP or PO")),
+
+      IF(
+        ISBLANK(M:M),
+
+        "Bid(s): " & K:K & char(10) & "Vendor Preference Explanation: " & L:L,
+
+        "Bid(s): " & K:K & ", <a href=" & M:M & ">Quotes</a>" & char(10) & "Vendor Preference Explanation: " & L:L
+      ),
+
+      "N/A"
+    ) 
+  )
+)

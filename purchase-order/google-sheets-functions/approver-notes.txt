@@ -1,0 +1,8 @@
+=ARRAYFORMULA(
+  IF(ROW(AU:AU)=1, "Approver Notes",
+
+  IF(
+    ISBLANK(AJ:AJ), "", AJ:AJ
+    )
+  )
+)

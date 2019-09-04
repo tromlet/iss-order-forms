@@ -1,0 +1,10 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(AU:AU)=1, "Approver Email", 
+    IFS(
+      REGEXMATCH(H:H, "HOO or RMS"), "justin@inselfstorage.com",
+      REGEXMATCH(H:H, "MP or PO"), "charles@inselfstorage.com",
+      REGEXMATCH(H:H, "already approved"), "charles@inselfstorage.com"
+    )
+  )
+)
