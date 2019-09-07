@@ -12,8 +12,8 @@
       ((E:E="REQUEST a change order to already approved WO?")*
       (ISBLANK(AH:AH))),
         4,
-      ((E:E="APPROVE or DENY work/service or change order?")+
-      (NOT(ISBLANK(AH:AH)))),
+      (REGEXMATCH(AH:AH, "APPROVE")*
+      REGEXMATCH(AJ:AJ, "Yes")),
         5
     )
   )

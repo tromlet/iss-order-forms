@@ -1,11 +1,3 @@
-=ARRAYFORMULA(
-  IF(
-    ROW(AN:AN)=1,"Project Documentation",
-    
-    IF(
-      ISBLANK(R:R), "N/A",
+Project Documentation
 
-      ": <a href=" & R:R & ">Pre-approved Project Documentation</a>"
-    )
-  )
-)
+(formula removed and integrated into the "Budget" formula)

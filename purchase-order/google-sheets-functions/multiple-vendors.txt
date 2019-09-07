@@ -12,7 +12,19 @@
 
         "Bid(s): " & S:S & char(10) & "Vendor Preference Explanation: " & T:T,
 
-        "Bid(s): " & S:S & ", <a href=" & U:U & ">Quotes</a>" & char(10) & "Vendor Preference Explanation: " & T:T
+        "Bid(s): " & S:S & ", Vendor Preference Explanation: " & T:T & char(10) &
+
+        REGEXREPLACE(
+          REGEXREPLACE(
+            REGEXREPLACE(
+              U:U, "$", ">Quote</a>"
+            ),
+          
+            ", ", ">Quote</a>" & " - " & "<a href="
+          ),
+      
+          "^", "<a href="
+        )
       ),
 
       "N/A"

@@ -12,10 +12,10 @@
       (AN:AN="Yes")),
         3,
       (REGEXMATCH(E:E, "REQUEST a change order to already approved WO?")*
-      (ISBLANK(AL:AL))),
+      NOT(ISBLANK(AL:AL))),
         4,
-      (REGEXMATCH(E:E, "APPROVE or DENY work/service change request?")+
-      (NOT(ISBLANK(AF:AF)))),
+      (REGEXMATCH(E:E, "MARK a job as complete")*
+      (NOT(ISBLANK(AN:AN)))),
         5
     )
   )

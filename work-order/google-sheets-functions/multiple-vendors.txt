@@ -11,9 +11,21 @@
       IF(
         ISBLANK(Q:Q),
 
-        "Bid(s): " & O:O & char(10) & "Vendor Preference Explanation: " & P:P,
+        "Bid(s): " & O:O & ", Vendor Preference Explanation: " & P:P,
 
-        "Bid(s): " & O:O & ", <a href=" & Q:Q & ">Quotes</a>" & char(10) & "Vendor Preference Explanation: " & P:P
+        "Bid(s): " & O:O & ", Vendor Preference Explanation: " & P:P & char(10) &
+
+        REGEXREPLACE(
+          REGEXREPLACE(
+            REGEXREPLACE(
+              Q:Q, "$", ">Quote</a>"
+            ),
+          
+            ", ", ">Quote</a>" & " - " & "<a href="
+          ),
+      
+          "^", "<a href="
+        )
       ),
 
       "N/A"

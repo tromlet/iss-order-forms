@@ -9,7 +9,14 @@
         ISBLANK(P:P),
 
         IF(
-          ISBLANK(Q:Q), "N/A",
+          ISBLANK(Q:Q), 
+          
+          IF(
+            ISBLANK(R:R), "N/A",
+
+            "<a href=" & R:R & ">Pre-approved Project Documentation</a>"
+          ),
+
           "HOC: " & Q:Q
         ),
 
@@ -17,7 +24,7 @@
       ),
 
       IF (
-        (E:E="WITHIN my discretionary monthly allotment"),
+        REGEXMATCH(E:E, "WITHIN"),
         
         "COM/SM/SS: " & J:J,
         
@@ -25,6 +32,12 @@
           ISBLANK(P:P), "", char(10) & "HOO/RMS: " & P:P
         )
       )
+    ) &
+
+    IF(
+      ISBLANK(R:R), "",
+
+      " - <a href=" & R:R & ">Pre-approved Project Documentation</a>"
     )
   )
 )

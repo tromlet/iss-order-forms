@@ -4,8 +4,32 @@
     
     IF(
       (REGEXMATCH(X:X, "No")+ISBLANK(X:X)), "N/A",
-      
-      X:X & ": <a href=" & Y:Y & ">Attached Invoice</a>"
+
+      IF(
+        REGEXMATCH(X:X, "attaching below"),
+
+        IF(
+          ISBLANK(Y:Y),
+
+          X:X & " - ERROR: No file attached!",
+
+          X:X & char(10) &
+
+          REGEXREPLACE(
+            REGEXREPLACE(
+              REGEXREPLACE(
+                Y:Y, "$", ">Invoice</a>"
+              ),
+            
+              ", ", ">Invoice</a>" & " - " & "<a href="
+            ),
+        
+            "^", "<a href="
+          )
+        ),
+
+        "Yes - attached in 'Multiple Vendors' section above."
+      )
     )
   )
 )
