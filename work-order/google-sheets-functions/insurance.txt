@@ -1,11 +1,16 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AV:AV)=1, "Insurance", 
+    ROW(BA:BA)=1, "Insurance", 
     
-    IF(
-      ISBLANK(I:I), "N/A",
-
-      "Over $2500 and caused by damage?" & I:I & " - " & J:J
+    IFS(
+      ISBLANK(I:I)+REGEXMATCH(I:I, "No"),
+        "N/A",
+      REGEXMATCH(I:I, "Yes")*REGEXMATCH(J:J, "Not"),
+        "Over $2,500 and caused by damage - " & J:J,
+      REGEXMATCH(I:I, "No")*REGEXMATCH(J:J, "Eligible"),
+        J:J,
+      REGEXMATCH(I:I, "Yes")*REGEXMATCH(J:J, "Eligible"),
+        "Over $2,500 and caused by damage - " & J:J
     )
   )
 )

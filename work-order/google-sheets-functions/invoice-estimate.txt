@@ -1,34 +1,37 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AU:AU)=1, "Invoice/Estimate",
+    ROW(AY:AY)=1, "Invoice/Estimate",
     
     IF(
-      (REGEXMATCH(X:X, "No")+ISBLANK(X:X)), "N/A",
+      (REGEXMATCH(Z:Z, "No")+ISBLANK(Z:Z)), "N/A",
 
       IF(
-        REGEXMATCH(X:X, "attaching below"),
+        REGEXMATCH(Z:Z, "attaching below"),
 
         IF(
-          ISBLANK(Y:Y),
+          ISBLANK(AA:AA),
 
-          X:X & " - ERROR: No file attached!",
+          "Yes, attached here: " & "[ERROR: No file attached!]",
 
-          X:X & char(10) &
+          "Yes, attached here: " & "<a href=" & AA:AA & ">Attachment</a>"
+        ),
+
+        IFS(
+          REGEXMATCH("Multiple Vendors"), "Yes - attached in the 'Multiple Vendors' section above.",
+          REGEXMATCH("SIGNED Invoice"), "INVOICE(S)/ESTIMATE(S) ALREADY SIGNED:" & char(10) &
 
           REGEXREPLACE(
             REGEXREPLACE(
               REGEXREPLACE(
-                Y:Y, "$", ">Invoice</a>"
+                P:P, "$", ">Attachment</a>"
               ),
             
-              ", ", ">Invoice</a>" & " - " & "<a href="
+              ", ", ">Attachment</a>" & " - " & "<a href="
             ),
         
             "^", "<a href="
           )
-        ),
-
-        "Yes - attached in 'Multiple Vendors' section above."
+        )
       )
     )
   )

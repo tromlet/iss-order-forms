@@ -3,7 +3,7 @@
     ROW(A:A)=1,"Work Order Number",
     
     IF(
-      ISBLANK(AA:AA), "CO_DEN", AA:AA
+      ISBLANK(AC:AC), "CO_DEN", AC:AC
     )
     
     & "_" & "WO" & "_" & TEXT(DATEVALUE(C:C), "yymmdd")

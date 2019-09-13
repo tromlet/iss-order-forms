@@ -1,24 +1,23 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AS:AS)=1, "Multiple Vendors",
+    ROW(AW:AW)=1, "Multiple Vendors",
     
     IF(
-      (REGEXMATCH(M:M, "OVER $500")+
-      REGEXMATCH(M:M, "WILL EXCEED")+
-      REGEXMATCH(N:N, "OVER $500")+
-      REGEXMATCH(N:N, "WILL EXCEED")),
+      (M:M="WITHIN monthly YTD budget & OVER $500")+
+      (M:M="OVER monthly YTD budget & OVER $500")+
+      (O:O="OVER monthly YTD marketing budget"),
 
       IF(
-        ISBLANK(Q:Q),
+        ISBLANK(S:S),
 
-        "Bid(s): " & O:O & ", Vendor Preference Explanation: " & P:P,
+        "Bid(s): " & Q:Q & ", Vendor Preference Explanation: " & R:R,
 
-        "Bid(s): " & O:O & ", Vendor Preference Explanation: " & P:P & char(10) &
+        "Bid(s): " & Q:Q & ", Vendor Preference Explanation: " & R:R & char(10) &
 
         REGEXREPLACE(
           REGEXREPLACE(
             REGEXREPLACE(
-              Q:Q, "$", ">Quote</a>"
+              S:S, "$", ">Quote</a>"
             ),
           
             ", ", ">Quote</a>" & " - " & "<a href="

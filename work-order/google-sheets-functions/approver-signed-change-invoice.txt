@@ -1,0 +1,11 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(BF:BF)=1, "Approver Signed Change Invoice",
+    
+    IF(
+      (REGEXMATCH(AO:AO, "No")+ISBLANK(AO:AO)), "",
+      
+      " Approver Signed Invoice: <a href=" & AQ:AQ & ">Attachment</a>"
+    )
+  )
+)

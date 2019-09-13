@@ -1,0 +1,29 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(BD:BD)=1, "Completion Files",
+    
+    IF(
+      (REGEXMATCH(AR:AR, "No")+ISBLANK(AR:AR)), "N/A",
+
+      IF(
+        REGEXMATCH(AR:AR, "attaching below"),
+
+        IF(
+          ISBLANK(AU:AU), "N/A",
+
+          REGEXREPLACE(
+            REGEXREPLACE(
+              REGEXREPLACE(
+                AU:AU, "$", ">Attachment</a>"
+              ),
+            
+              ", ", ">Attachment</a>" & " - " & "<a href="
+            ),
+        
+            "^", "<a href="
+          )
+        )
+      )
+    )
+  )
+)

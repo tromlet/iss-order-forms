@@ -1,13 +1,38 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AY:AY)=1, "Approver Name", 
-    
-    IFS(
-      REGEXMATCH(G:G, "WITHIN"), "ISS Accounting", 
-      REGEXMATCH(G:G, "OVER"), "Justin Frank", 
-      (REGEXMATCH(M:M, "WITHIN")+REGEXMATCH(N:N, "WITHIN")), "ISS Accounting", 
-      (REGEXMATCH(M:M, "OVER")+REGEXMATCH(N:N, "OVER")), "Charles Oliver",
-      (REGEXMATCH(M:M, "WILL EXCEED")+REGEXMATCH(N:N, "WILL EXCEED")), "Ryan Oliver"
+    ROW(BG:BG)=1, "Approver Name",
+
+    IF(
+      ISBLANK(G:G),
+
+      IF(
+        ISBLANK(M:M),
+
+        IF(
+          ISBLANK(O:O), "ERROR",
+
+          IFS(
+            (O:O="WITHIN monthly YTD marketing budget"), "ISS Accounting",
+            (O:O="OVER monthly YTD marketing budget"), "Justin Frank",
+            (O:O="WILL EXCEED TOTAL ANNUAL MARKETING BUDGET"), "Charles Oliver"
+          )
+        ),
+
+        IFS(
+          ((M:M="WITHIN monthly YTD budget & UNDER $500")+
+          (M:M="WITHIN monthly YTD budget & OVER $500")+
+          (M:M="OVER monthly YTD budget & UNDER $500")),
+            "ISS Accounting",
+          ((M:M="OVER monthly YTD budget & OVER $500")+
+          (M:M="WILL EXCEED TOTAL ANNUAL BUDGET")),
+            "Charles Oliver"
+        )
+      ),
+
+      IFS(
+        (G:G="WITHIN my discretionary monthly allotment"), "ISS Accounting",
+        (G:G="OVER my discretionary monthly allotment"), "Justin Frank"
+      )
     )
   )
 )

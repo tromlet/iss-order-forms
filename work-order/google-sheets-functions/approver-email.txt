@@ -5,7 +5,6 @@
     IFS(
       REGEXMATCH(AY:AY, "Accounting"), "accounting@inselfstorage.com",
       REGEXMATCH(AY:AY, "Charles"), "charles@inselfstorage.com",
-      REGEXMATCH(AY:AY, "Ryan"), "ryan@inselfstorage.com",
       REGEXMATCH(AY:AY, "Justin"), "justin@inselfstorage.com"
     )
   )
