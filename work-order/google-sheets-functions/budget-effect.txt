@@ -1,0 +1,11 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(BF:BF)=1, "Budget Effect",
+    
+    IF(
+      ISBLANK(AJ:AJ), "N/A",
+      
+      AJ:AJ
+    )
+  )
+)

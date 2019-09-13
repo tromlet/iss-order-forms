@@ -1,23 +1,23 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AW:AW)=1, "Multiple Vendors",
+    ROW(BB:BB)=1, "Multiple Vendors",
     
     IF(
       (M:M="WITHIN monthly YTD budget & OVER $500")+
       (M:M="OVER monthly YTD budget & OVER $500")+
-      (O:O="OVER monthly YTD marketing budget"),
+      (P:P="OVER monthly YTD marketing budget"),
 
       IF(
-        ISBLANK(S:S),
+        ISBLANK(T:T),
 
-        "Bid(s): " & Q:Q & ", Vendor Preference Explanation: " & R:R,
+        "Bid(s): " & R:R & ", Vendor Preference Explanation: " & S:S,
 
-        "Bid(s): " & Q:Q & ", Vendor Preference Explanation: " & R:R & char(10) &
+        "Bid(s): " & R:R & ", Vendor Preference Explanation: " & S:S & char(10) &
 
         REGEXREPLACE(
           REGEXREPLACE(
             REGEXREPLACE(
-              S:S, "$", ">Quote</a>"
+              T:T, "$", ">Quote</a>"
             ),
           
             ", ", ">Quote</a>" & " - " & "<a href="

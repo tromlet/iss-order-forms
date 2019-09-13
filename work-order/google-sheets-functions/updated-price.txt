@@ -1,0 +1,18 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(BE:BE)=1, "Updated Price",
+
+    IF(
+      ISBLANK(AI:AI), "N/A",
+
+      IFS(
+        (VALUE(X:X) > VALUE(AI:AI)),
+          "$" & AI:AI & " (Decrease of $" & SUM(VALUE(X:X) - VALUE(AI:AI)) & ")",
+        (VALUE(AI:AI) > VALUE(X:X)),
+          "$" & AI:AI & " (Increase of $" & SUM(VALUE(X:X) - VALUE(AI:AI)) & ")",
+        (VALUE(X:X) = VALUE(AI:AI)),
+          "$" & AI:AI & " (No change in price)"
+      )
+    )
+  )
+)

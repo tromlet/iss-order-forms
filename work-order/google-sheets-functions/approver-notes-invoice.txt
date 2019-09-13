@@ -1,0 +1,17 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(BI:BI)=1, "Approver Notes Invoice",
+    
+    IF(
+      ISBLANK(AM:AM), "N/A",
+
+      IF(
+        ISBLANK(AN:AN), "", AN:AN
+      ) &
+      
+      IF(
+        ISBLANK(AO:AO), "", " (Approver Signed Invoice: <a href=" & AO:AO & ">Attachment</a>)"
+      )
+    )
+  )
+)

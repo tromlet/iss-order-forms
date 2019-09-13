@@ -3,18 +3,18 @@
     ROW(BD:BD)=1, "Completion Files",
     
     IF(
-      (REGEXMATCH(AR:AR, "No")+ISBLANK(AR:AR)), "N/A",
+      (REGEXMATCH(AS:AS, "No")+ISBLANK(AS:AS)), "N/A",
 
       IF(
-        REGEXMATCH(AR:AR, "attaching below"),
+        REGEXMATCH(AS:AS, "attaching below"),
 
         IF(
-          ISBLANK(AU:AU), "N/A",
+          ISBLANK(AV:AV), "N/A",
 
           REGEXREPLACE(
             REGEXREPLACE(
               REGEXREPLACE(
-                AU:AU, "$", ">Attachment</a>"
+                AV:AV, "$", ">Attachment</a>"
               ),
             
               ", ", ">Attachment</a>" & " - " & "<a href="

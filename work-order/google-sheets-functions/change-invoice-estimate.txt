@@ -1,11 +1,11 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AZ:AZ)=1, "Change Invoice",
+    ROW(BG:BG)=1, "Change Invoice",
     
     IF(
-      (REGEXMATCH(AK:AK, "No")+ISBLANK(AK:AK)), "N/A",
+      (REGEXMATCH(AK:AK, "No")+ISBLANK(AL:AL)), "N/A",
       
-      "Yes, attaching here: " & "<a href=" & AK:AK & ">Attachment</a>"
+      "Yes, attaching here: " & "<a href=" & AL:AL & ">Attachment</a>"
     )
   )
 )

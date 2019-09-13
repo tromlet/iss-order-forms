@@ -1,20 +1,20 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AX:AX)=1, "Links",
+    ROW(BD:BD)=1, "Links",
 
     IF(
-      (ISBLANK(X:X)*ISBLANK(X:X)), "N/A",
+      (ISBLANK(Y:Y)*ISBLANK(Y:Y)), "N/A",
 
       IF(
-        ISBLANK(X:X), "", "<a href=" & X:X & ">Work Link</a>"
+        ISBLANK(Y:Y), "", "<a href=" & Y:Y & ">Work Link</a>"
       ) &
 
       IF(
-       (NOT(ISBLANK(X:X))*NOT(ISBLANK(Y:Y))), " - ", ""
+       (NOT(ISBLANK(Y:Y))*NOT(ISBLANK(Z:Z))), " - ", ""
       ) &
 
       IF( 
-        ISBLANK(Y:Y), "", "<a href=" & Y:Y & ">Work List</a>"
+        ISBLANK(Z:Z), "", "<a href=" & Z:Z & ">Work List</a>"
       )
     )
   )

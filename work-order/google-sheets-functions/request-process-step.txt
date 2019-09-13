@@ -1,22 +1,14 @@
 =ARRAYFORMULA(
-  IF(ROW(B:B)=1, "Request Process Step", 
-    IFS(
-      (REGEXMATCH(D:D, "REQUEST work/service?")*(ISBLANK(AL:AL))),
-        1,
-      (REGEXMATCH(G:G, "WITHIN")+
-      REGEXMATCH(AL:AL, "APPROVE")+
-      REGEXMATCH(M:M, "WITHIN")+
-      REGEXMATCH(O:O, "WITHIN")),
-        2,
-      (REGEXMATCH(D:D, "MARK a job as complete")*
-      REGEXMATCH(AN:AN, "Yes")),
-        3,
-      (REGEXMATCH(D:D, "REQUEST a change order to already approved WO?")*
-      NOT(ISBLANK(AL:AL))),
-        4,
-      (REGEXMATCH(D:D, "MARK a job as complete")*
-      (NOT(ISBLANK(AN:AN)))),
-        5
-    )
-  )
+	IF(ROW(B:B)=1, "Request Process Step", 
+		IFS(
+			(REGEXMATCH(D:D, "REQUEST work/service?")*(ISBLANK(AM:AM))),
+				1,
+			(REGEXMATCH(D:D, "REQUEST a change order to already approved WO?")*
+			NOT(ISBLANK(AM:AM))),
+				2,
+			(REGEXMATCH(AS:AS, "Yes")*
+			(NOT(ISBLANK(AP:AP)))),
+				3
+		)
+	)
 )

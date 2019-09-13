@@ -1,6 +1,6 @@
 =ARRAYFORMULA(
   IF(
-    ROW(BG:BG)=1, "Approver Name",
+    ROW(BK:BK)=1, "Approver Name",
 
     IF(
       ISBLANK(G:G),
@@ -9,12 +9,12 @@
         ISBLANK(M:M),
 
         IF(
-          ISBLANK(O:O), "ERROR",
+          ISBLANK(P:P), "ERROR",
 
           IFS(
-            (O:O="WITHIN monthly YTD marketing budget"), "ISS Accounting",
-            (O:O="OVER monthly YTD marketing budget"), "Justin Frank",
-            (O:O="WILL EXCEED TOTAL ANNUAL MARKETING BUDGET"), "Charles Oliver"
+            (P:P="WITHIN monthly YTD marketing budget"), "ISS Accounting",
+            (P:P="OVER monthly YTD marketing budget"), "Justin Frank",
+            (P:P="WILL EXCEED TOTAL ANNUAL MARKETING BUDGET"), "Charles Oliver"
           )
         ),
 

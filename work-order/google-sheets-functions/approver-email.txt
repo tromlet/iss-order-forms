@@ -1,11 +1,12 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AZ:AZ)=1, "Approver Email", 
+    ROW(BL:BL)=1, "Approver Email", 
     
     IFS(
-      REGEXMATCH(AY:AY, "Accounting"), "accounting@inselfstorage.com",
-      REGEXMATCH(AY:AY, "Charles"), "charles@inselfstorage.com",
-      REGEXMATCH(AY:AY, "Justin"), "justin@inselfstorage.com"
+      REGEXMATCH(BK:BK, "Accounting"), "accounting@inselfstorage.com",
+      REGEXMATCH(BK:BK, "Charles"), "charles@inselfstorage.com",
+      REGEXMATCH(BK:BK, "Justin"), "justin@inselfstorage.com",
+      REGEXMATCH(BK:BK, "ERROR"), "techadmin@inselfstorage.com"
     )
   )
 )

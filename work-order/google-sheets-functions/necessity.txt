@@ -1,0 +1,17 @@
+=ARRAYFORMULA(
+  IF(
+    ROW(BA:BA)=1, "Necessity",
+
+    IF(
+      (ISBLANK(N:N)*ISBLANK(O:O)), "N/A",
+
+      IF(
+        ISBLANK(N:N), "", N:N
+      ) &
+
+      IF(
+        ISBLANK(O:O), "", O:O
+      )
+    )
+  )
+)

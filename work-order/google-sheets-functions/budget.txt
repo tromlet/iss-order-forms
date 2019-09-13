@@ -1,6 +1,6 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AV:AV)=1, "Budget",
+    ROW(AZ:AZ)=1, "Budget",
     
     IF(
       ISBLANK(G:G),
@@ -9,8 +9,8 @@
         ISBLANK(M:M),
 
         IF(
-          ISBLANK(O:O), "N/A",
-          "HMT: " & O:O
+          ISBLANK(P:P), "N/A",
+          "HMT: " & P:P
         ),
 
         "HOO/RMS: " & M:M
