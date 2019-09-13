@@ -3,15 +3,15 @@
     ROW(BE:BE)=1, "Updated Price",
 
     IF(
-      ISBLANK(AI:AI), "N/A",
+      ISBLANK(AI:AI), "N/A", DOLLAR(AI:AI, 2) &
 
       IFS(
-        (VALUE(X:X) > VALUE(AI:AI)),
-          "$" & AI:AI & " (Decrease of $" & SUM(VALUE(X:X) - VALUE(AI:AI)) & ")",
-        (VALUE(AI:AI) > VALUE(X:X)),
-          "$" & AI:AI & " (Increase of $" & SUM(VALUE(X:X) - VALUE(AI:AI)) & ")",
-        (VALUE(X:X) = VALUE(AI:AI)),
-          "$" & AI:AI & " (No change in price)"
+        (X:X > AI:AI),
+          " (Decrease of $" & TO_TEXT(MINUS(X:X, AI:AI)) & ")",
+        (AI:AI > X:X),
+          " (Increase of $" & TO_TEXT(MINUS(AI:AI, X:X)) & ")",
+        (X:X = AI:AI),
+          " (No change in price)"
       )
     )
   )
