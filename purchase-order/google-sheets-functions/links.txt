@@ -1,32 +1,32 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AP:AP)=1, "Links",
+    ROW(AW:AW)=1, "Links",
 
     IF(
-      (ISBLANK(Z:Z)*ISBLANK(AA:AA)*ISBLANK(AB:AB)), "N/A",
+      (ISBLANK(AC:AC)*ISBLANK(AD:AD)*ISBLANK(AE:AE)), "N/A",
 
       IF(
-        ISBLANK(Z:Z), "", "<a href=" & Z:Z & ">Item Link</a>"
+        ISBLANK(AC:AC), "", "<a href=" & AC:AC & ">Item Link</a>"
       ) &
 
       IF(
-        (NOT(ISBLANK(Z:Z))*NOT(ISBLANK(AB:AB))), " - ", "" 
+        (NOT(ISBLANK(AC:AC))*NOT(ISBLANK(AE:AE))), " - ", "" 
       ) &
 
       IF(
-        ISBLANK(AB:AB), "", "<a href=" & AB:AB & ">Item List</a>"
+        ISBLANK(AE:AE), "", "<a href=" & AE:AE & ">Item List</a>"
       ) &
 
       IF(
-        (NOT(ISBLANK(AB:AB))*NOT(ISBLANK(AA:AA))), " - ", "" 
+        (NOT(ISBLANK(AE:AE))*NOT(ISBLANK(AD:AD))), " - ", "" 
       ) &
 
       IF(
-        (NOT(ISBLANK(Z:Z))*NOT(ISBLANK(AA:AA))*ISBLANK(AB:AB)), " - ", "" 
+        (NOT(ISBLANK(AC:AC))*NOT(ISBLANK(AD:AD))*ISBLANK(AE:AE)), " - ", "" 
       ) &
 
       IF(
-        ISBLANK(AA:AA), "", "<a href=" & AA:AA & ">Damage Photo/Video</a>"
+        ISBLANK(AD:AD), "", "<a href=" & AD:AD & ">Damage Photo/Video</a>"
       ) 
     )
   )

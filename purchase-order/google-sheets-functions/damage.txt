@@ -1,9 +1,22 @@
 =ARRAYFORMULA(
   IF(
     ROW(AR:AR)=1, "Damage", 
-    
+
     IF(
-      (ISBLANK(L:L)+ISBLANK(N:N)), "N/A", N:N
+      (ISBLANK(L:L)*ISBLANK(N:N))+
+      (REGEXMATCH(L:L, "No")*REGEXMATCH(N:N, "No")),
+        "N/A",
+
+      L:L & " - " &
+      
+      IFS(
+        (REGEXMATCH(L:L, "Yes")*REGEXMATCH(N:N, "No")),
+          "over $2,500.",
+        (REGEXMATCH(N:N, "Yes")*REGEXMATCH(L:L, "No")),
+          "possibly tenant-caused.",
+        (REGEXMATCH(L:L, "Yes")*REGEXMATCH(N:N, "Yes")),
+          "over $2,500 & possibly tenant-caused."
+      )
     )
   )
 )

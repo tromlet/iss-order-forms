@@ -1,6 +1,6 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AM:AM)=1, "Budget",
+    ROW(AS:AS)=1, "Budget",
     
     IF(
       ISBLANK(J:J),
@@ -9,15 +9,15 @@
         ISBLANK(P:P),
 
         IF(
-          ISBLANK(Q:Q), 
+          ISBLANK(S:S), 
           
           IF(
-            ISBLANK(R:R), "N/A",
+            ISBLANK(T:T), "N/A",
 
-            "<a href=" & R:R & ">Pre-approved Project Documentation</a>"
+            "<a href=" & T:T & ">Pre-approved Project Documentation</a>"
           ),
 
-          "HOC: " & Q:Q
+          "HOC: " & S:S
         ),
 
         "HOO/RMS: " & P:P
@@ -35,9 +35,9 @@
     ) &
 
     IF(
-      ISBLANK(R:R), "",
+      ISBLANK(T:T), "",
 
-      " - <a href=" & R:R & ">Pre-approved Project Documentation</a>"
+      " - <a href=" & T:T & ">Pre-approved Project Documentation</a>"
     )
   )
 )

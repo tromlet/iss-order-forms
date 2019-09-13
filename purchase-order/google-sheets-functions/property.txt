@@ -1,6 +1,6 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AL:AL)=1, "Property",
+    ROW(AP:AP)=1, "Property",
     
     IF(
       REGEXMATCH(E:E, "PROPERTY"),
@@ -8,15 +8,41 @@
       IF(
         REGEXMATCH(F:F, "LISTED"),
 
-        G:G & " (Unlisted Property)",
+        "Unlisted Property - " &
+        
+        IF(
+          ISBLANK(AE:AE), "(Field left blank)", AE:AE
+        ),
 
-        F:F
+        IFS(
+          REGEXMATCH(F:F, "1_BUR"), "IN01 Burien, WA " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "2_ELK"), "IN02 Elk Grove, CA (Highway 99) " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "3_FOR"), "IN03 Fort Worth, TX " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "4_PLA"), "IN04 Plano, TX " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "5_AUR"), "IN05 Aurora, CO (Havana) " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "6_ELZ"), "IN06 Elizabeth, CO " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "7_SLC"), "IN07 West Valley, UT " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "8_EST"), "IN08 Estes Park, CO " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "9_AUB"), "IN09 Aubrey, TX " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "10_WYL"), "IN10 Wylie, TX " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "11_EXP"), "IN11 Sacramento, CA (Expo) " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "12_SAL"), "IN12 Salem, OR " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "13_WAT"), "IN13 Elk Grove, CA (Waterman) " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "14_CUP"), "IN14 Cupertino, CA " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "15_MIL"), "IN15 Milpitas, CA " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "16_SAC"), "IN16 Sacramento, CA (South) " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "17_LAY"), "IN17 Layton, UT " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "18_FIT"), "IN18 Aurora, CO (Fitzsimons) " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "19a_TUC"), "IN19 Tucson, AZ " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "19b_TUC LAND ONLY"), "IN19 Tucson, AZ (Land Only) " & "(" & F:F & ")",
+          REGEXMATCH(F:F, "20_FLO"), "IN20 Flower Mound, TX " & "(" & F:F & ")"
+        )
       ),
 
       IFS(
-        REGEXMATCH(E:E, "OFFICE"), "CO_DEN",
+        REGEXMATCH(E:E, "OFFICE"), "Central Office - Denver, CO",
 
-        REGEXMATCH(E:E, "GP company"), "GP CO"
+        REGEXMATCH(E:E, "GP company"), "GP Company"
       )
     ) 
   )

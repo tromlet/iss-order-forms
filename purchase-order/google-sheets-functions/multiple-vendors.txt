@@ -1,23 +1,23 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AO:AO)=1, "Multiple Vendors",
+    ROW(AU:AU)=1, "Multiple Vendors",
     
     IF(
       (REGEXMATCH(P:P, "OVER")+
-      REGEXMATCH(Q:Q, "HOO or RMS")+
-      REGEXMATCH(Q:Q, "MP or PO")),
+      REGEXMATCH(S:S, "HOO or RMS")+
+      REGEXMATCH(S:S, "MP or PO")),
 
       IF(
-        ISBLANK(U:U),
+        ISBLANK(X:X),
 
-        "Bid(s): " & S:S & char(10) & "Vendor Preference Explanation: " & T:T,
+        "Bid(s): " & V:V & char(10) & "Vendor Preference Explanation: " & W:W,
 
-        "Bid(s): " & S:S & ", Vendor Preference Explanation: " & T:T & char(10) &
+        "Bid(s): " & V:V & ", Vendor Preference Explanation: " & W:W & char(10) &
 
         REGEXREPLACE(
           REGEXREPLACE(
             REGEXREPLACE(
-              U:U, "$", ">Quote</a>"
+              X:X, "$", ">Quote</a>"
             ),
           
             ", ", ">Quote</a>" & " - " & "<a href="
