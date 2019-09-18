@@ -10,9 +10,9 @@
       IF(
         ISBLANK(T:T),
 
-        "Bid(s): " & R:R & ", Vendor Preference Explanation: " & S:S,
+        "Bid(s): " & R:R & char(10) & "Vendor Preference: " & S:S,
 
-        "Bid(s): " & R:R & ", Vendor Preference Explanation: " & S:S & char(10) &
+        "Bid(s): " & R:R & char(10) & "Vendor Preference: " & S:S & char(10) &
 
         REGEXREPLACE(
           REGEXREPLACE(

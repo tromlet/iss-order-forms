@@ -30,7 +30,7 @@
       ),
 
       IFS(
-        (G:G="WITHIN my discretionary monthly allotment"), "ISS Accounting",
+        (G:G="WITHIN my discretionary monthly allotment"), "Justin Frank",
         (G:G="OVER my discretionary monthly allotment"), "Justin Frank"
       )
     )

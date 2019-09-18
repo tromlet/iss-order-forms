@@ -3,16 +3,17 @@
     ROW(AU:AU)=1, "Multiple Vendors",
     
     IF(
-      (REGEXMATCH(P:P, "OVER")+
+      (REGEXMATCH(P:P, "WITHIN monthly YTD budget & OVER")+
+      REGEXMATCH(P:P, "OVER monthly YTD budget & OVER")+
       REGEXMATCH(S:S, "HOO or RMS")+
       REGEXMATCH(S:S, "MP or PO")),
 
       IF(
         ISBLANK(X:X),
 
-        "Bid(s): " & V:V & char(10) & "Vendor Preference Explanation: " & W:W,
+        "Bid(s): " & V:V & char(10) & "Vendor Preference: " & W:W,
 
-        "Bid(s): " & V:V & ", Vendor Preference Explanation: " & W:W & char(10) &
+        "Bid(s): " & V:V & char(10) & "Vendor Preference: " & W:W & char(10) &
 
         REGEXREPLACE(
           REGEXREPLACE(

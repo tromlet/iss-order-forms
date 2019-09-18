@@ -1,13 +1,13 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AY:AY)=1, "Approver Email", 
+    ROW(AZ:AZ)=1, "Approver Email", 
     
     IFS(
-      AX:AX="Charles Oliver", "charles@inselfstorage.com",
-      AX:AX="Ryan Oliver", "ryan@inselfstorage.com",
-      AX:AX="Justin Frank", "justin@inselfstorage.com",
-      AX:AX="ISS Accounting", "accounting@inselfstorage.com",
-      ISBLANK(AX:AX), "charles@inselfstorage.com"
+      AY:AY="Charles Oliver", "charles@inselfstorage.com",
+      AY:AY="Ryan Oliver", "ryan@inselfstorage.com",
+      AY:AY="Justin Frank", "justin@inselfstorage.com",
+      AY:AY="ISS Accounting", "accounting@inselfstorage.com",
+      ISBLANK(AY:AY), "charles@inselfstorage.com"
     )
   )
 )

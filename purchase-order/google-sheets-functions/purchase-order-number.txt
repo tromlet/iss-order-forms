@@ -2,34 +2,32 @@
   IF(
     ROW(A:A)=1,"Purchase Order Number",
     
-    IF(
-      ISBLANK(F:F), "INCO",
-
-      IFS(
-        REGEXMATCH(F:F, "1_BUR"), "IN01",
-        REGEXMATCH(F:F, "2_ELK"), "IN02",
-        REGEXMATCH(F:F, "3_FOR"), "IN03",
-        REGEXMATCH(F:F, "4_PLA"), "IN04",
-        REGEXMATCH(F:F, "5_AUR"), "IN05",
-        REGEXMATCH(F:F, "6_ELZ"), "IN06",
-        REGEXMATCH(F:F, "7_SLC"), "IN07",
-        REGEXMATCH(F:F, "8_EST"), "IN08",
-        REGEXMATCH(F:F, "9_AUB"), "IN09",
-        REGEXMATCH(F:F, "10_WYL"), "IN10",
-        REGEXMATCH(F:F, "11_EXP"), "IN11",
-        REGEXMATCH(F:F, "12_SAL"), "IN12",
-        REGEXMATCH(F:F, "13_WAT"), "IN13",
-        REGEXMATCH(F:F, "14_CUP"), "IN14",
-        REGEXMATCH(F:F, "15_MIL"), "IN15",
-        REGEXMATCH(F:F, "16_SAC"), "IN16",
-        REGEXMATCH(F:F, "17_LAY"), "IN17",
-        REGEXMATCH(F:F, "18_FIT"), "IN18",
-        REGEXMATCH(F:F, "19a_TUC"), "IN19",
-        REGEXMATCH(F:F, "19b_TUC LAND ONLY"), "IN19",
-        REGEXMATCH(F:F, "20_FLO"), "IN20"
-      )
+    SWITCH(AD:AD,
+      "1_BUR", "IN01",
+      "2_ELK", "IN02",
+      "3_FOR", "IN03",
+      "4_PLA", "IN04",
+      "5_AUR", "IN05",
+      "6_ELZ", "IN06",
+      "7_SLC", "IN07",
+      "8_EST", "IN08",
+      "9_AUB", "IN09",
+      "10_WYL", "IN10",
+      "11_EXP", "IN11",
+      "12_SAL", "IN12",
+      "13_WAT", "IN13",
+      "14_CUP", "IN14",
+      "15_MIL", "IN15",
+      "16_SAC", "IN16",
+      "17_LAY", "IN17",
+      "18_FIT", "IN18",
+      "19a_TUC", "IN19",
+      "19b_TUC LAND ONLY", "IN19",
+      "20_FLO", "IN20",
+      "PROPERTY NOT LISTED", "INUL",
+      "INCO"
     )
-    
+
     & "_" & "PO" & "_" & TEXT(DATEVALUE(C:C), "yymmdd") & TEXT(TIMEVALUE(RIGHT(C:C, 8)), "HHmmss")
   )
 )

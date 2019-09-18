@@ -1,57 +1,11 @@
 =ARRAYFORMULA(
   IF(
-    ROW(AS:AS)=1, "Approver Name", 
+    ROW(AY:AY)=1, "Approver Name", 
     
     IFS(
-      REGEXMATCH(J:J, "WITHIN"), "ISS Accounting",
-      (REGEXMATCH(J:J, "OVER")+REGEXMATCH(Q:Q, "HOO or RMS")), "Justin Frank",
-      REGEXMATCH(S:S, "WITHIN"), "ISS Accounting",
-      REGEXMATCH(S:S, "OVER"), "Charles Oliver",
-      (REGEXMATCH(S:S, "WILL EXCEED")+REGEXMATCH(Q:Q, "MP or PO")+REGEXMATCH(Q:Q, "alread approved project")), "Ryan Oliver",
-      (ISBLANK(S:S)+ISBLANK(Q:Q)), "Charles Oliver"
-    )
-  )
-)
-
-=ARRAYFORMULA(
-  IF(
-    ROW(AX:AX)=1, "Approver Name",
-
-    IF(
-      ISBLANK(J:J),
-
-      IF(
-        ISBLANK(P:P),
-
-        IF(
-          ISBLANK(S:S), 
-          
-          IF(
-            ISBLANK(I:I), "ERROR", "Charles Oliver"
-          ),
-
-          IFS(
-            REGEXMATCH(S:S, "Within"), "ISS Accounting",
-            REGEXMATCH(S:S, "already approved"), "Justin Frank",
-            REGEXMATCH(S:S, "MP or PO"), "Charles Oliver"
-          )
-        ),
-
-        IFS(
-          ((P:P="WITHIN monthly YTD budget & UNDER $500")+
-          (P:P="WITHIN monthly YTD budget & OVER $500")+
-          (P:P="OVER monthly YTD budget & UNDER $500")),
-            "ISS Accounting",
-          ((P:P="OVER monthly YTD budget & OVER $500")+
-          (P:P="WILL EXCEED TOTAL ANNUAL BUDGET")),
-            "Charles Oliver"
-        )
-      ),
-
-      IFS(
-        REGEXMATCH(J:J, "WITHIN"), "ISS Accounting",
-        REGEXMATCH(J:J, "OVER"), "Justin Frank"
-      )
+      REGEXMATCH(H:H, "REPLENISHABLES"), "ISS Accounting",
+      REGEXMATCH(H:H, "REPAIRS"), "Justin Frank",
+      REGEXMATCH(H:H, "EQUIPMENT"), "Charles Oliver"
     )
   )
 )
