@@ -35,7 +35,8 @@
           "18_FIT", "IN18 Aurora, CO (Fitzsimons)",
           "19a_TUC", "IN19 Tucson, AZ",
           "19b_TUC LAND ONLY", "IN19 Tucson, AZ (Land Only)",
-          "20_FLO", "IN20 Flower Mound, TX"
+          "20_FLO", "IN20 Flower Mound, TX",
+          "21_HAZ", "IN21 Fair Oaks, CA",
         ) & " (" & AD:AD & ")"
       ),
 
