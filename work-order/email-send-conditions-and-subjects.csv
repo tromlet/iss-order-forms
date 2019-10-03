@@ -1,0 +1,13 @@
+Email Template, Send Condition, Send Condition Value, Email Subject
+Approver - WO Request, Request Process Step, 1, A work order request (<<Work Order Number>>) has been submitted for approval.
+Requestor - WO Request, Request Process Step, 1, Your work order request (<<Work Order Number>>) has been submitted for approval.
+Accounting - WO Approved, APPROVE or DENY the request?, APPROVE, A work order request (<<Work Order Number>>) has been approved.
+Requestor - WO Approved, APPROVE or DENY the request?, APPROVE, Your work order request (<<Work Order Number>>) has been approved!
+Requestor - WO Denied, APPROVE or DENY the request?, DENY, Your work order request (<<Work Order Number>>) has been denied.
+Requestor - WO Completed, Has the job been completed?, Yes, Your work order (<<Work Order Number>>) has been completed.
+Approver - WO Change Request, WHAT DO DO?, REQUEST a change order to already approved WO?, Changes have been requested for a work order request (<<Work Order Number>>).
+Requestor - WO Change Request, WHAT DO DO?, REQUEST a change order to already approved WO?, Your requested changes to your work order request (<<Work Order Number>>) have been submitted.
+Accounting - WO Change Approved, APPROVE or DENY the changes?, APPROVE, Changes to a work order request (<<Work Order Number>>) have been approved.
+Requestor - WO Change Approved, APPROVE or DENY the changes?, APPROVE, The changes requested to your work order request (<<Work Order Number>>) have been approved!
+Requestor - WO Change Denied, APPROVE or DENY the changes?, DENY, The changes requested to your work order request (<<Work Order Number>>) have been denied.
+Requestor - WO Change Completed, Request Process Step, 3, Your work order (<<Work Order Number>>) has been completed.

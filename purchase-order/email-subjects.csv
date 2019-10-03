@@ -1,0 +1,7 @@
+Email Template, Send Condition, Send Condition Value, Email Subject
+Approver - PO Request, Request Process Step, 1, A purchase order request (<<Purchase Order Number>>) has been submitted for approval.
+Requestor - PO Request, Request Process Step, 1, Your purchase order request (<<Purchase Order Number>>) has been submitted for approval.
+Accounting - PO Approved, APPROVE or DENY the request ?, APPROVE, An item purchase order request (<<Purchase Order Number>>) has been approved for purchase.
+Requestor - PO Approved, APPROVE or DENY the request ?, APPROVE, Your item purchase order request (<<Purchase Order Number>>) has been approved!
+Requestor - PO Denied, APPROVE or DENY the request ?, DENY, Your item purchase order request (<<Purchase Order Number>>) has been denied.
+Requestor - PO Purchased, Have the items been purchased?, Yes, The item you requested (<<Purchase Order Number>>) has been purchased.
