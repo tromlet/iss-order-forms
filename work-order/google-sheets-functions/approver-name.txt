@@ -12,9 +12,11 @@
           ISBLANK(P:P), "ERROR",
 
           IFS(
-            (P:P="WITHIN monthly YTD marketing budget"), "ISS Accounting",
-            (P:P="OVER monthly YTD marketing budget"), "Justin Frank",
-            (P:P="WILL EXCEED TOTAL ANNUAL MARKETING BUDGET"), "Charles Oliver"
+            ((P:P="WITHIN monthly YTD marketing budget")+
+            (P:P="OVER monthly YTD marketing budget")),
+              "Justin Frank",
+            (P:P="WILL EXCEED TOTAL ANNUAL MARKETING BUDGET"),
+              "Charles Oliver"
           )
         ),
 
@@ -22,7 +24,7 @@
           ((M:M="WITHIN monthly YTD budget & UNDER $500")+
           (M:M="WITHIN monthly YTD budget & OVER $500")+
           (M:M="OVER monthly YTD budget & UNDER $500")),
-            "ISS Accounting",
+            "Justin Frank",
           ((M:M="OVER monthly YTD budget & OVER $500")+
           (M:M="WILL EXCEED TOTAL ANNUAL BUDGET")),
             "Charles Oliver"
