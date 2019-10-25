@@ -25,6 +25,7 @@
       "19b_TUC LAND ONLY", "IN19",
       "20_FLO", "IN20",
       "21_HAZ", "IN21",
+      "22_SWS", "IN22",
       "PROPERTY NOT LISTED", "INUL",
       "INCO"
     )

@@ -26,7 +26,7 @@
           "9_AUB", "IN09 Aubrey, TX",
           "10_WYL", "IN10 Wylie, TX",
           "11_EXP", "IN11 Sacramento, CA (Expo)",
-          "12_SAL", "IN12 Salem, OR",
+          "12_SAL", "IN12 Salem, OR (Wallace)",
           "13_WAT", "IN13 Elk Grove, CA (Waterman)",
           "14_CUP", "IN14 Cupertino, CA",
           "15_MIL", "IN15 Milpitas, CA",
@@ -37,6 +37,8 @@
           "19b_TUC LAND ONLY", "IN19 Tucson, AZ (Land Only)",
           "20_FLO", "IN20 Flower Mound, TX",
           "21_HAZ", "IN21 Fair Oaks, CA",
+          "22_SYS", "IN22 Salem, OR (West)",
+          "NO PROPERTY MATCH -"
         ) & " (" & AD:AD & ")"
       ),
 
